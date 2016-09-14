@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int main() {
+void playGame() {
     int r = 0;
     int guess = 0;
     int count = 0;
@@ -32,7 +32,7 @@ int main() {
                 cin >> guess;
             }
         } else {
-        	while (!(guess >= 0 && guess <= 100)) {
+            while (!(guess >= 0 && guess <= 100)) {
                 cout << "That was not between 0 and 100." << " / Please enter a guess between 0 and 100, inclusive: ";
                 cin >> guess;
             }
@@ -42,6 +42,16 @@ int main() {
     if (guess == r) {
         int input = 0;
         count++;
-        cout << "You got it! / Guesses required: " << count;
+        cout << "You got it! / Guesses required: " << count << "\n" << "Would you like to play again? (0 = no / 1 = yes): ";
+        cin >> input;
+        if (input == 1) {
+            playGame();
+        } else {
+            cout << "Thank you for playing!";
+        }
     }
+}
+
+int main() {
+    playGame();
 }
